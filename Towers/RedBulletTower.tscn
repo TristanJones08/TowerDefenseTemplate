@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://ngqelclmdb6f"]
+
+[ext_resource type="Script" path="res://Towers/RedBulletTower.gd" id="1_a053o"]
+[ext_resource type="Texture2D" uid="uid://nx4bd41qwtp4" path="res://Tower Defense (top-down) (1)/PNG/Default size/towerDefense_tile250.png" id="2_m13b8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt3ds"]
+size = Vector2(133, 138)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1wpc"]
+radius = 390.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpsmk"]
+bg_color = Color(0.811878, 0.0256993, 0.000110123, 1)
+corner_radius_top_left = 450
+corner_radius_top_right = 450
+corner_radius_bottom_right = 450
+corner_radius_bottom_left = 450
+
+[node name="RedBulletTower" type="StaticBody2D"]
+script = ExtResource("1_a053o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jt3ds")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="TowerDefenseTile250" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("2_m13b8")
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
+shape = SubResource("CircleShape2D_i1wpc")
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 1, 0.313726)
+offset_left = -384.0
+offset_top = -384.0
+offset_right = 384.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wpsmk")
+
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
