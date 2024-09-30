@@ -6,15 +6,14 @@
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 1600.0
-offset_top = -64.0
-offset_right = 1856.0
+offset_right = 1920.0
 offset_bottom = 640.0
 
 [node name="FlowContainer" type="FlowContainer" parent="Panel"]
 layout_mode = 0
 offset_top = 64.0
-offset_right = 86.0
-offset_bottom = 235.0
+offset_right = 43.0
+offset_bottom = 555.0
 scale = Vector2(3, 3)
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
@@ -23,4 +22,16 @@ theme_override_constants/v_separation = 30
 layout_mode = 2
 
 [node name="RedTowerPanel2" parent="Panel/FlowContainer" instance=ExtResource("1_4aapq")]
+layout_mode = 2
+
+[node name="RedTowerPanel3" parent="Panel/FlowContainer" instance=ExtResource("1_4aapq")]
+layout_mode = 2
+
+[node name="RedTowerPanel4" parent="Panel/FlowContainer" instance=ExtResource("1_4aapq")]
+layout_mode = 2
+
+[node name="RedTowerPanel5" parent="Panel/FlowContainer" instance=ExtResource("1_4aapq")]
+layout_mode = 2
+
+[node name="RedTowerPanel6" parent="Panel/FlowContainer" instance=ExtResource("1_4aapq")]
 layout_mode = 2
