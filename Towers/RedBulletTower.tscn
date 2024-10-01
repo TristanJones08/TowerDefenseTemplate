@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ngqelclmdb6f"]
+[gd_scene load_steps=11 format=3 uid="uid://ngqelclmdb6f"]
 
 [ext_resource type="Script" path="res://Towers/RedBulletTower.gd" id="1_a053o"]
 [ext_resource type="Texture2D" uid="uid://nx4bd41qwtp4" path="res://Tower Defense (top-down) (1)/PNG/Default size/towerDefense_tile250.png" id="2_m13b8"]
@@ -15,6 +15,58 @@ corner_radius_top_left = 450
 corner_radius_top_right = 450
 corner_radius_bottom_right = 450
 corner_radius_bottom_left = 450
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh34e"]
+bg_color = Color(0.129412, 0.137255, 0.117647, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.180392, 0.396078, 0.858824, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fys8e"]
+bg_color = Color(0.103027, 0.644342, 0.904138, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.211765, 0.87451, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fex37"]
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.74436, 0.763271, 0.917235, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ds0al"]
+bg_color = Color(0.850736, 0.0992748, 0.16963, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.964389, 0.0869487, 0.237793, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3uqta"]
 
 [node name="RedBulletTower" type="StaticBody2D"]
 script = ExtResource("1_a053o")
@@ -44,6 +96,49 @@ offset_top = -384.0
 offset_right = 384.0
 offset_bottom = 384.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wpsmk")
+
+[node name="Upgrade" type="Node" parent="."]
+
+[node name="Panel" type="Panel" parent="Upgrade"]
+offset_left = -572.0
+offset_top = 81.0
+offset_right = 4.0
+offset_bottom = 273.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gh34e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade/Panel"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 23.5
+offset_right = 572.0
+offset_bottom = 148.5
+theme_override_constants/separation = 68
+alignment = 1
+
+[node name="Range" type="Button" parent="Upgrade/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fys8e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fex37")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ds0al")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3uqta")
+
+[node name="AttackSpeed" type="Button" parent="Upgrade/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fys8e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fex37")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ds0al")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3uqta")
+
+[node name="Power" type="Button" parent="Upgrade/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fys8e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fex37")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ds0al")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3uqta")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
