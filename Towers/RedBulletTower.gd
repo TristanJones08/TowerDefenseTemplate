@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 var Bullet = preload("res://Towers/RedBullet.tscn")
-var bulletDamage = 5
+var bulletDamage = 3
 var pathName
 var currTargets = []
 var curr
@@ -46,3 +46,5 @@ func _on_tower_body_entered(body):
 
 func _on_tower_body_exited(body):
     currTargets = get_node("Tower").get_overlapping_bodies()
+
+
